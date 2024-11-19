@@ -12,10 +12,10 @@ import { RiKey2Fill } from "react-icons/ri";
 export default function Home() {
   return (
     <div>
-      <main className="bg-white mx-auto md:rounded-lg  py-8">
+      <main className="bg-white mx-auto md:rounded-lg  md:py-8">
         {/* Hero Section */}
-        <div className="bg-white/90 max-w-5xl mx-auto  p-8 mb-12">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="bg-white/90 max-w-5xl mx-auto  p-5  md:mb-12 lg:mb-0">
+          <div className="flex flex-col md:flex-row items-center gap-5">
             <Image
               src={HomeImg.src}
               alt="Grommr Mascots"

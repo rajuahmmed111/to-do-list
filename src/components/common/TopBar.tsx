@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaQuestionCircle } from "react-icons/fa";
 import { LiaUserPlusSolid } from "react-icons/lia";
+import { RiKey2Fill } from "react-icons/ri";
 import { TbFlagFilled } from "react-icons/tb";
 
 const TopBar = () => {
@@ -20,7 +21,8 @@ const TopBar = () => {
           <LiaUserPlusSolid className="text-sm" />
           Join Us
         </Link>
-        <Link href="#" className="text-white/80">
+        <Link href="#" className="text-white/80 flex gap-2 items-center">
+          <RiKey2Fill className="transform text-lg -rotate-90 scale-x-[-1]" />
           Sign In
         </Link>
       </nav>
