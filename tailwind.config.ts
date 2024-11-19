@@ -8,14 +8,20 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jost: ["Jost", "sans-serif"], // Define Jost font
+        ubuntu: ["Ubuntu", "sans-serif"], // Define Ubuntu font
+      },
       colors: {
         primary: "#4F4B46",
+        "primary-green": "#8B9B3E",
+        "secondary-green": "#C3CD99",
         "dark-gray": "#EEEEEE",
         secondary: "#E6E3DB", // light beige for sections
         accent: "#6F675D", // accent brown for elements like buttons
         text: {
           DEFAULT: "#333333", // main text color
-          green: "#708B2D", // text color for buttons like "Join Us" and "Sign In"
+          green: "#86A047", // text color for buttons like "Join Us" and "Sign In"
           white: "#FFFFFF", // white text used over buttons or darker backgrounds
           tea: "#7A6E56",
         },

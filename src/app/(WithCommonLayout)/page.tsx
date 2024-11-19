@@ -4,6 +4,7 @@ import HomeImg from "@/assets/image/home/home-2x.jpg";
 import PlayStore from "@/assets/png/playstore.png";
 import AppleStore from "@/assets/png/applestore.png";
 import MobileHero from "@/assets/image/home/mobile-hero.png";
+import { FaRegNewspaper } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -43,7 +44,7 @@ export default function Home() {
                   Sign In
                 </Link>
               </div>
-              <p className="text-sm text-neutral-600">
+              <p className="text-sm text-">
                 This is a community website that helps to meet others, having
                 fun, and more about gaining and encouraging on the{" "}
                 <Link href="#" className="text-[#8B9B3E]">
@@ -61,8 +62,9 @@ export default function Home() {
         </div>
 
         {/* Mobile App Section */}
-        <div className="bg-dark-gray max-h-[400px]  mx-auto mt-28 mb-12">
-          <div className="flex max-w-5xl mx-auto flex-col p-8  md:flex-row  justify-between gap-8">
+        <div className="relative z-10 h-fit mb-20">
+          <div className="bg-dark-gray bottom-0 left-0 w-full -z-10 absolute min-h-[350px] mx-auto mt-28"></div>
+          <div className="flex max-w-5xl mx-auto flex-col z-20  md:flex-row items-center   justify-between gap-8">
             <div>
               <h2 className="text-text-green mt-20 font-semibold text-xl mb-4">
                 Also available via the
@@ -92,13 +94,15 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <Image
-              src={MobileHero}
-              alt="Mobile App Screenshots"
-              width={500}
-              height={400}
-              className="w-full -mt-28 md:w-1/2"
-            />
+            <div className=" md:w-1/2 flex flex-col justify-start place-items-start">
+              <Image
+                src={MobileHero}
+                alt="Mobile App Screenshots"
+                width={500}
+                height={400}
+                className="w-full "
+              />
+            </div>
           </div>
         </div>
 
@@ -106,23 +110,16 @@ export default function Home() {
         <div className="grid max-w-5xl mx-auto md:grid-cols-2 gap-8">
           {/* Newsfeed */}
           <div className="bg-white/90 rounded-lg p-8">
-            <div className="flex gap-4 mb-4">
-              <div className="w-12 h-12 bg-[#8B9B3E] rounded-full flex items-center justify-center">
-                <Image
-                  src="/newsfeed-icon.svg"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="text-white"
-                />
+            <div className="mb-4">
+              <div className="text-7xl text-secondary-green  justify-center">
+                <FaRegNewspaper />
               </div>
-              <h3 className="text-[#8B9B3E] text-xl">
-                A Newsfeed that keeps you in touch with
-                <br />
-                the community and your friends
+              <h3 className="text-text-green font-ubuntu font-bold text-xl">
+                A Newsfeed that keeps you in touch with the community and your
+                friends
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Don&#39;t miss out on the hottest topics and latest news! The
               newsfeed provides a summary of what people are writing on their
               walls and the community forums. You can customize what appears in
@@ -152,7 +149,7 @@ export default function Home() {
                 members and the community as a whole
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className=" text-sm">
               No matter your personality, Grommr has tools you can use to
               interact with the people you like most. Whether you prefer the
               privacy of direct messages, or the more public nature of wall
@@ -181,7 +178,7 @@ export default function Home() {
                 friends, dates and mates
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Our search engine is designed to help you discover people who
               share your interests, who dance your interests, who fit your type
               and have the same kinks as you. No matter what your criteria are,
@@ -208,7 +205,7 @@ export default function Home() {
                 Location, location, location
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Location is everything. So of course we built Grommr with powerful
               location tools. When you add your location to your profile by
               entering a city name, zip/postal code, or even an address
@@ -238,7 +235,7 @@ export default function Home() {
                 Integrated messaging and chat
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               On Grommr, chat and messaging are integrated. If you&#39;re busy
               chatting with someone and need to leave the site for a bit,
               that&#39;s fine! The chat message is kept in your inbox and you
@@ -267,7 +264,7 @@ export default function Home() {
                 Mobile apps for iPhone and Android
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Want to keep in touch while on the go? Nothing easier! Just take
               the Grokio Communities app from the App Store or from Google Play
               Store. The mobile apps have been designed to deliver an experience
@@ -292,7 +289,7 @@ export default function Home() {
               </div>
               <h3 className="text-[#8B9B3E] text-xl">Your privacy matters</h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Grommr is like a &#34;gated&#34; community. No user content
               (profiles, posts, photos) is accessible from commercial search
               engines such as Google, or from unauthenticated users. In addition
@@ -323,7 +320,7 @@ export default function Home() {
                 translated in seven languages
               </h3>
             </div>
-            <p className="text-neutral-600 text-sm">
+            <p className="text- text-sm">
               Use Grommr in one of the seven languages supported: English,
               French, German, Spanish, Italian, Portuguese and Dutch. Some
               languages don&#39;t have a full translation yet, so a few items
@@ -337,7 +334,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-600">
+      <footer className="max-w-6xl mx-auto px-4 py-8 text-sm text-">
         <div className="flex justify-between items-center">
           <div>Version: 5.0.0-341600 | Legal Notice | Contact</div>
           <div className="flex gap-4">
