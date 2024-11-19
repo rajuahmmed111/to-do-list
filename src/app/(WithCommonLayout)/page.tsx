@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import HomeImg from "@/assets/image/home/home-2x.jpg";
+import PlayStore from "@/assets/png/playstore.png";
+import AppleStore from "@/assets/png/applestore.png";
+import MobileHero from "@/assets/image/home/mobile-hero.png";
 
-export default function Component() {
+export default function Home() {
   return (
     <div>
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="bg-white mx-auto rounded-lg  py-8">
         {/* Hero Section */}
-        <div className="bg-white/90 rounded-lg p-8 mb-12">
+        <div className="bg-white/90 max-w-5xl mx-auto  p-8 mb-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <Image
               src={HomeImg.src}
@@ -58,10 +61,10 @@ export default function Component() {
         </div>
 
         {/* Mobile App Section */}
-        <div className="bg-white/90 rounded-lg p-8 mb-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-dark-gray max-h-[400px]  mx-auto mt-28 mb-12">
+          <div className="flex max-w-5xl mx-auto flex-col p-8  md:flex-row  justify-between gap-8">
             <div>
-              <h2 className="text-[#8B9B3E] text-xl mb-4">
+              <h2 className="text-text-green mt-20 font-semibold text-xl mb-4">
                 Also available via the
                 <br />
                 Grokio Communities app
@@ -71,36 +74,36 @@ export default function Component() {
               <div className="flex gap-4">
                 <Link href="#">
                   <Image
-                    src="/google-play.png"
+                    src={PlayStore}
                     alt="Get it on Google Play"
-                    width={140}
-                    height={42}
+                    width={180}
+                    height={62}
                     className="h-10 w-auto"
                   />
                 </Link>
                 <Link href="#">
                   <Image
-                    src="/app-store.png"
+                    src={AppleStore}
                     alt="Download on the App Store"
-                    width={140}
-                    height={42}
+                    width={180}
+                    height={62}
                     className="h-10 w-auto"
                   />
                 </Link>
               </div>
             </div>
             <Image
-              src="/mobile-screens.png"
+              src={MobileHero}
               alt="Mobile App Screenshots"
               width={500}
               height={400}
-              className="w-full md:w-1/2"
+              className="w-full -mt-28 md:w-1/2"
             />
           </div>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid max-w-5xl mx-auto md:grid-cols-2 gap-8">
           {/* Newsfeed */}
           <div className="bg-white/90 rounded-lg p-8">
             <div className="flex gap-4 mb-4">

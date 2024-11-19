@@ -33,8 +33,10 @@ export default function RootLayout({
         style={{ background: `url('${Background.src}')` }}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <div className="container">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
