@@ -29,7 +29,6 @@ export default {
       },
       container: {
         center: true,
-
         screens: {
           "2xl": "1600px",
         },
