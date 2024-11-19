@@ -36,7 +36,7 @@ const Navbar = () => {
               className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors sm:space-x-1"
             >
               <FaFeatherAlt className="max-sm:hidden" />
-              <Link href="#">About Us</Link>
+              <Link href="/about">About Us</Link>
             </li>
             <span className="h-8 border-r border-dotted border-gray-400 mx-2 md:mx-4"></span>{" "}
             {/* Divider */}

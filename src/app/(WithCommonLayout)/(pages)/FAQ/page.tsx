@@ -76,7 +76,7 @@ const topics = [
 function FAQPage() {
   return (
     <div className=" max-w-5xl mx-auto py-10 ">
-      <div className="flex items-center justify-between md:mb-5 gap-4 flex-wrap">
+      <div className="flex px-5 items-center justify-between md:mb-5 gap-4 flex-wrap">
         <Header Icon={TbBook} className="text-3xl" iconClass="text-5xl">
           Gaining FAQ
         </Header>
