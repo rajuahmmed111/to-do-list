@@ -36,9 +36,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TopBar />
-        <div className="md:container text-text">
+        <div className="md:container">
           <Navbar />
-          {children}
+        </div>
+        <div className="md:px-5">
+          <div className="md:container md:rounded-lg text-text bg-white">
+            {children}
+          </div>
+        </div>
+        <div className="md:container">
           <Footer />
         </div>
       </body>

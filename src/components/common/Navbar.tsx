@@ -7,7 +7,7 @@ import { FaFeatherAlt } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <header className="p-4 max-md:pb-0 max-md:pr-0 flex flex-wrap gap-4 justify-between ">
+    <header className="p-4 max-md:pb-0 max-md:pr-0 flex flex-wrap gap-5 flex-col sm:flex-row justify-between ">
       <Logo />
       <div className="flex-1 flex font-ubuntu  justify-end">
         <nav className="flex max-w-lg text-sm items-center justify-center bg-gradient-to-b from-[#FDFDFD] to-[#D5CDCB] py-0 px-3 rounded-lg max-md:rounded-b-none max-md:rounded-r-none md:shadow-md border border-gray-300">
@@ -27,7 +27,7 @@ const Navbar = () => {
               <span className="material-icons max-sm:hidden">
                 <TbBook className="text-base" />
               </span>
-              <Link href="#">Gaining FAQ</Link>
+              <Link href="/FAQ">Gaining FAQ</Link>
             </li>
             <span className="h-8 border-r border-dotted border-gray-400 mx-2 md:mx-4"></span>{" "}
             {/* Divider */}
