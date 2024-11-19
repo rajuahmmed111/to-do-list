@@ -16,6 +16,7 @@ export default {
         primary: "#4F4B46",
         "primary-green": "#8B9B3E",
         "secondary-green": "#C3CD99",
+        "secondary-blue": "#5887FF",
         "dark-gray": "#EEEEEE",
         secondary: "#E6E3DB", // light beige for sections
         accent: "#6F675D", // accent brown for elements like buttons
