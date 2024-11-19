@@ -11,9 +11,9 @@ import { TbFlagFilled } from "react-icons/tb";
 
 const FeaturesGrid = () => {
   return (
-    <div className="grid max-w-5xl mx-auto md:grid-cols-2 gap-8">
+    <div className="grid max-w-5xl mx-auto md:grid-cols-2">
       {/* Newsfeed */}
-      <div className="bg-white/90  rounded-lg p-8">
+      <div className="bg-white/90  rounded-lg py-5 px-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <FaRegNewspaper />
@@ -35,7 +35,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Community Tools */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl  text-secondary-green">
             <FaThumbsUp />
@@ -56,7 +56,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Search */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <MdOutlineFindInPage />
@@ -77,7 +77,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Location */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <IoLocationSharp />
@@ -101,7 +101,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Messaging */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <TiMessages />
@@ -123,7 +123,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Mobile Apps */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <HiMiniWrench />
@@ -144,7 +144,7 @@ const FeaturesGrid = () => {
         </p>
       </div>
       {/* Mobile Apps */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <IoPhonePortrait />
@@ -164,7 +164,7 @@ const FeaturesGrid = () => {
       </div>
 
       {/* Privacy */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <IoShieldCheckmark />
@@ -187,15 +187,13 @@ const FeaturesGrid = () => {
       </div>
 
       {/* International */}
-      <div className="bg-white/90 rounded-lg p-8">
+      <div className="bg-white/90 rounded-lg p-5">
         <div className="mb-4 flex flex-col  gap-2">
           <div className="text-7xl text-secondary-green ">
             <TbFlagFilled />
           </div>
           <h3 className="text-text-green font-ubuntu font-bold text-xl">
-            International community, website
-            <br />
-            translated in seven languages
+            International community, website translated in seven languages
           </h3>
         </div>
         <p className="text- text-sm">

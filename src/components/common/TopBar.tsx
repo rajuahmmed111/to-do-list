@@ -1,20 +1,26 @@
 import Link from "next/link";
 import React from "react";
+import { FaQuestionCircle } from "react-icons/fa";
+import { LiaUserPlusSolid } from "react-icons/lia";
+import { TbFlagFilled } from "react-icons/tb";
 
 const TopBar = () => {
   return (
-    <header className="bg-white/80 p-4 flex justify-between items-center">
-      <nav className="flex gap-4 text-sm">
-        <Link href="#" className="text-neutral-600">
+    <header className="bg-black/30  flex justify-between items-center">
+      <nav className="flex gap-4 container text-xs py-1 text-right w-full justify-end">
+        <Link href="#" className="text-white/80 flex gap-2 items-center">
+          <FaQuestionCircle className="text-sm" />
           Contact
         </Link>
-        <Link href="#" className="text-neutral-600">
+        <Link href="#" className="text-white/80 flex gap-2 items-center">
+          <TbFlagFilled className="text-sm" />
           English (US)
         </Link>
-        <Link href="#" className="text-neutral-600">
-          Sign Up
+        <Link href="#" className="text-white/80 flex gap-2 items-center">
+          <LiaUserPlusSolid className="text-sm" />
+          Join Us
         </Link>
-        <Link href="#" className="text-neutral-600">
+        <Link href="#" className="text-white/80">
           Sign In
         </Link>
       </nav>
