@@ -18,12 +18,12 @@ export default {
         "secondary-green": "#C3CD99",
         "secondary-blue": "#5887FF",
         "dark-gray": "#EEEEEE",
-        secondary: "#E6E3DB", // light beige for sections
-        accent: "#6F675D", // accent brown for elements like buttons
+        secondary: "#E6E3DB",
+        accent: "#6F675D",
         text: {
-          DEFAULT: "#333333", // main text color
-          green: "#86A047", // text color for buttons like "Join Us" and "Sign In"
-          white: "#FFFFFF", // white text used over buttons or darker backgrounds
+          DEFAULT: "#333333",
+          green: "#86A047",
+          white: "#FFFFFF",
           tea: "#7A6E56",
         },
       },
