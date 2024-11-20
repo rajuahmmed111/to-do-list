@@ -5,6 +5,7 @@ import Background from "@/assets/background/background.png";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import TopBar from "@/components/common/TopBar";
+import React from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
