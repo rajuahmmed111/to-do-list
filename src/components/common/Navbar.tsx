@@ -44,7 +44,7 @@ const Navbar = () => {
               style={{ textShadow: "1px 1px 2px white" }}
               className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors space-x-2"
             >
-              <Link href="#">Community</Link>
+              <Link href="/community">Community</Link>
             </li>
           </ul>
         </nav>

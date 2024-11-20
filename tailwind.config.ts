@@ -20,6 +20,8 @@ export default {
         "dark-gray": "#EEEEEE",
         secondary: "#E6E3DB",
         accent: "#6F675D",
+        link: "#7a6e56",
+        "hover-blue": "#5d8fb4",
         text: {
           DEFAULT: "#333333",
           green: "#86A047",
