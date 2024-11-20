@@ -34,9 +34,15 @@ export default function Register() {
   const [isVerified, setIsVerified] = useState(false);
 
   const [value, setValue] = useState<any>();
+  const [valueErr, setValueErr] = useState<string>();
 
   const onSubmit = (data: FormData) => {
+    if (!value) {
+      setValueErr("Phone number is required");
+      return;
+    }
     console.log("Form Data:", { phoneNumer: value, ...data });
+    setValueErr("");
   };
 
   useEffect(() => {
@@ -93,8 +99,10 @@ export default function Register() {
               </div>
             </div>
 
-            <div>
-              <label className="block  mb-1">User name</label>
+            <div className="my-5">
+              <label className="block font-semibold text-sm  mb-1">
+                User name
+              </label>
               <input
                 type="text"
                 {...register("username", { required: "Username is required" })}
@@ -107,8 +115,8 @@ export default function Register() {
               )}
             </div>
 
-            <div>
-              <label className="block  mb-1">Email</label>
+            <div className="mb-5">
+              <label className="block font-semibold text-sm  mb-1">Email</label>
               <input
                 type="email"
                 {...register("email", {
@@ -131,8 +139,17 @@ export default function Register() {
               </p>
             </div>
 
-            <div>
-              <label className="block  mb-1">Date of Birth</label>
+            <div className="mb-5">
+              <label className="block font-semibold text-sm  mb-1">
+                Date of Birth
+              </label>
+              <p className="text-sm my-1">
+                By entering this site you agree that you are 18 years of age or
+                older, and that the content of this site is legal in your
+                country or jurisdiction. Your birthdate is required but will
+                remain confidential. Only your age will show in your profile.
+                Using a false birthdate is grounds for account suspension.
+              </p>
               <div className="flex gap-2">
                 <input
                   type="date"
@@ -149,8 +166,10 @@ export default function Register() {
               )}
             </div>
 
-            <div>
-              <label className="block  mb-1">Gender</label>
+            <div className="mb-5">
+              <label className="block font-semibold text-sm  mb-1">
+                Gender
+              </label>
               <select
                 {...register("gender", { required: "Gender is required" })}
                 className="w-full border border-[#A9987E] max-w-xs bg-[#EFEBE2] rounded px-2 py-1"
@@ -167,9 +186,15 @@ export default function Register() {
               )}
             </div>
 
-            <div>
-              <label className="block  mb-1">Interested in</label>
+            <div className="mb-5">
+              <label
+                htmlFor="interests"
+                className="block font-semibold text-sm  mb-1"
+              >
+                Interested in
+              </label>
               <select
+                id="interests"
                 {...register("interests", {
                   required: "Please select an interest",
                 })}
@@ -186,31 +211,36 @@ export default function Register() {
               )}
             </div>
 
-            <div>
-              <label className="block  mb-1">Phone Number</label>
-              <PhoneInput
-                placeholder="Enter phone number"
-                value={value}
-                className="w-full border border-[#A9987E] max-w-xs bg-[#EFEBE2] rounded px-2 py-1"
-                onChange={setValue}
-              />
-              {!value && (
-                <div className="text-red-500 mt-2 text-sm">
-                  Phone number is required
-                </div>
-              )}
-              <p className="text-sm  mt-1">
+            <div className="mb-5">
+              <label className="block font-semibold text-sm  mb-1">
+                Phone Number
+              </label>
+              <p className="text-sm  my-1">
                 We&#39;ll send you a text message (SMS) with a verification code
                 needed to create your account. This step is required so we can
                 better protect our users, deny entry to bad actors and prevent
                 duplicate accounts. Your phone number will never be visible to
                 other users.
               </p>
+              <PhoneInput
+                placeholder="Enter phone number"
+                value={value}
+                className="w-full border border-[#A9987E] max-w-xs bg-[#EFEBE2] rounded px-2 py-1"
+                onChange={setValue}
+              />
+              {valueErr && (
+                <div className="text-red-500 mt-2 text-sm">
+                  Phone number is required
+                </div>
+              )}
             </div>
 
-            <div className=" mt-10 mb-5 space-y-4">
+            <div className=" mt-5 mb-5">
               {/* CAPTCHA Display */}
-              <div className="flex gap-2  items-center">
+              <div className="block font-semibold text-sm mb-2">
+                Verify that you are not a machine
+              </div>
+              <div className="flex gap-2  mb-5 items-center">
                 <div
                   aria-readonly
                   className="text-2xl w-fit  italic font-ubuntu select-none cursor-not-allowed font-bold tracking-widest bg-gray-200 py-2 px-4 rounded-md"
@@ -242,7 +272,7 @@ export default function Register() {
                     type="button"
                     onClick={handleVerify}
                     disabled={isVerified}
-                    className="bg-green-500 h-10 w-20 text-white font-semibold px-4 flex items-center justify-center py-2 rounded-md hover:bg-green-600 disabled:bg-green-300 transition"
+                    className="bg-primary-green h-10 w-20 text-white font-semibold px-4 flex items-center justify-center py-2 rounded-md hover:bg-primary disabled:bg-green-300 transition"
                   >
                     {isVerified ? (
                       <span className="text-white font-semibold">
@@ -257,8 +287,6 @@ export default function Register() {
                   <div className="text-red-500 mt-1 text-xs">{captchaErr}</div>
                 )}
               </div>
-
-              {/* Verified Message */}
             </div>
 
             <div className="border-t border-gray-200 pt-4">
@@ -283,15 +311,16 @@ export default function Register() {
                 DELETION OF YOUR ACCOUNT AND A PROHIBITION OF FURTHER USE OF OR
                 ACCESS TO GROKIO SITES, APPS AND TECHNOLOGICAL PLATFORMS.
               </p>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start cursor-pointer gap-2">
                 <input
+                  id="terms"
                   type="checkbox"
                   {...register("terms", {
                     required: "You must accept the terms",
                   })}
-                  className="mt-1"
+                  className="mt-1 cursor-pointer"
                 />
-                <label className="text-sm ">
+                <label htmlFor="terms" className="text-sm cursor-pointer">
                   I Accept the Terms & Conditions of Use, Privacy Policy and
                   Community Conduct Rules
                 </label>
@@ -301,15 +330,16 @@ export default function Register() {
                   {errors.terms.message}
                 </div>
               )}
-              <div className="flex items-start gap-2">
+              <div className="flex cursor-pointer items-start gap-2">
                 <input
+                  id="privacy"
                   type="checkbox"
                   {...register("privacy", {
                     required: "You must accept the usecase",
                   })}
-                  className="mt-1"
+                  className="mt-1 cursor-pointer "
                 />
-                <label className="text-sm ">
+                <label className="text-sm cursor-pointer " htmlFor="privacy">
                   I understand that this site is for personal use only and that
                   use of the site for business or research purposes is strictly
                   prohibited
