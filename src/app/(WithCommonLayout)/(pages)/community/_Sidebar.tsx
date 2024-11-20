@@ -33,7 +33,7 @@ const Sidebar = () => {
       </Link>
       <Link
         className="block hover:underline hover:text-hover-blue transition-colors mb-2 text-link"
-        href={"/community#"}
+        href={"/community#yr2011"}
       >
         2011 - Present: The Social Era{" "}
       </Link>
@@ -42,7 +42,7 @@ const Sidebar = () => {
       </h3>
       <Link
         className="block hover:underline hover:text-hover-blue transition-colors mb-2 text-link"
-        href={"/community#"}
+        href={"/community#gainer-report"}
       >
         Summary and takeaways{" "}
       </Link>

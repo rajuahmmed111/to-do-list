@@ -1,6 +1,7 @@
 import DLink from "@/components/ui/DLink";
 import Header from "@/components/ui/Header";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Content = () => {
@@ -594,7 +595,7 @@ const Content = () => {
         the baton to Anthony (Lrgrthnlf).
       </p>
 
-      <Header className="my-5 text-2xl">
+      <Header id="yr2003" className="my-5 text-2xl">
         2003 - 2011: The Mature Internet Era
       </Header>
 
@@ -720,7 +721,9 @@ const Content = () => {
         community experience online.
       </p>
 
-      <Header className="my-5 text-2xl">2011 - Present: The Social Era</Header>
+      <Header id="yr2011" className="my-5 text-2xl">
+        2011 - Present: The Social Era
+      </Header>
 
       <p>
         2011 was another inflection point for the gainer community. On March 29,
@@ -915,17 +918,16 @@ const Content = () => {
         </h1>
 
         {/* Paragraph with a link button */}
-        <p style={{ marginBottom: "40px" }}>
-          <DLink
-            underlined
-            className="link-button1"
+        <p style={{ marginBottom: "40px", marginTop: "20px" }}>
+          <Link
+            className="link-button1 bg-primary-green px-4 py-2 rounded-md text-white hover:bg-primary font-bold transition duration-300"
             style={{ fontSize: "1.2em" }}
             href="https://bit.ly/2mxmf3L"
             target="_blank"
             rel="noopener noreferrer" // Added for security best practices
           >
             Access the report
-          </DLink>
+          </Link>
         </p>
       </div>
 
@@ -968,7 +970,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>New York</li>
           <li>London</li>
           <li>Los Angeles</li>
@@ -995,7 +997,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>Houston</li>
           <li>Dallas</li>
           <li>Seattle</li>
@@ -1020,7 +1022,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>United Arab Emirates</li>
           <li>Finland</li>
           <li>United States</li>
@@ -1062,7 +1064,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>Belly play</li>
           <li>Cuddling</li>
           <li>Mutual masterbation</li>
@@ -1133,7 +1135,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>Ithaca, NY (Cornell and Ithaca College)</li>
           <li>Palo Alto, CA (Stanford)</li>
           <li>Madison, WI (UW-Madison)</li>
@@ -1158,7 +1160,7 @@ const Content = () => {
       </p>
 
       <div>
-        <ol>
+        <ol className="list-decimal ml-8 my-5">
           <li>Tight Clothes/Button Popping</li>
           <li>Belly Buttons/Navels</li>
           <li>Underwear</li>
