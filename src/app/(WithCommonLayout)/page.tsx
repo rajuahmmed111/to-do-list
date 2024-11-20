@@ -71,7 +71,7 @@ export default function Home() {
           <div className="bg-dark-gray bottom-0 left-0 w-full -z-10 absolute min-h-[380px] mx-auto mt-28"></div>
           <div className="flex max-w-5xl mx-auto  flex-col z-20  md:flex-row items-center   justify-between gap-10">
             <div>
-              <Header className="mb-5 max-w-xs max-sm:text-center">
+              <Header className="mb-5 text-3xl max-w-xs max-sm:text-center">
                 Also available via the Grokio Communities app for iPhone and
                 Android
               </Header>
