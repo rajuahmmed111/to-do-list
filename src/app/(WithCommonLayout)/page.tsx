@@ -35,14 +35,14 @@ export default function Home() {
               </p>
               <div className="flex gap-4">
                 <Link
-                  href="#"
+                  href="/register"
                   className="bg-[#8B9B3E] flex items-center gap-2 font-bold text-white px-3 py-2 rounded-md hover:bg-[#7A8936] transition-colors"
                 >
                   <LiaUserPlusSolid />
                   Join Us
                 </Link>
                 <Link
-                  href="#"
+                  href="/signin"
                   className="border-[#8B9B3E] px-3 border flex items-center gap-2  text-primary-green  py-2 rounded-md hover:text-white font-bold hover:bg-accent transition-colors"
                 >
                   <RiKey2Fill className="transform text-lg -rotate-90 scale-x-[-1]" />
