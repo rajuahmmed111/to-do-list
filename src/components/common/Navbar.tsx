@@ -14,7 +14,7 @@ const Navbar = () => {
           <ul className="flex items-center text-xs transition-colors font-medium text-text-tea">
             <li
               style={{ textShadow: "1px 1px 2px white" }}
-              className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors space-x-2"
+              className="flex items-center hover:text-hover-blue active:text-hover-blue font-semibold transition-colors space-x-2"
             >
               <Link href="/">Home</Link>
             </li>
@@ -22,7 +22,7 @@ const Navbar = () => {
             {/* Divider */}
             <li
               style={{ textShadow: "1px 1px 2px white" }}
-              className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors sm:space-x-2"
+              className="flex items-center hover:text-hover-blue active:text-hover-blue font-semibold transition-colors sm:space-x-2"
             >
               <span className="material-icons max-sm:hidden">
                 <TbBook className="text-base" />
@@ -33,7 +33,7 @@ const Navbar = () => {
             {/* Divider */}
             <li
               style={{ textShadow: "1px 1px 2px white" }}
-              className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors sm:space-x-1"
+              className="flex items-center hover:text-hover-blue active:text-hover-blue font-semibold transition-colors sm:space-x-1"
             >
               <FaFeatherAlt className="max-sm:hidden" />
               <Link href="/about">About Us</Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
             {/* Divider */}
             <li
               style={{ textShadow: "1px 1px 2px white" }}
-              className="flex items-center hover:text-secondary-blue active:text-secondary-blue font-semibold transition-colors space-x-2"
+              className="flex items-center hover:text-hover-blue active:text-hover-blue font-semibold transition-colors space-x-2"
             >
               <Link href="/community">Community</Link>
             </li>
