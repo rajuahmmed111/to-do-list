@@ -26,7 +26,7 @@ const TopBar = () => {
         </Link>
         <span className="h-4 my-auto hidden sm:flex border-r border-dotted border-gray-400 "></span>{" "}
         <Link
-          href="#"
+          href="/register"
           className="text-white/80 hidden sm:flex rounded-md hover:bg-white/15 transition-colors px-2 py-[2px] gap-2 items-center"
         >
           <LiaUserPlusSolid className="text-sm" />
@@ -34,7 +34,7 @@ const TopBar = () => {
         </Link>
         <span className="h-4 my-auto hidden sm:flex border-r border-dotted border-gray-400 "></span>{" "}
         <Link
-          href="#"
+          href="/signin"
           className="text-white/80 hidden sm:flex rounded-md hover:bg-white/15 transition-colors px-2 py-[2px] gap-2 items-center"
         >
           <RiKey2Fill className="transform text-lg -rotate-90 scale-x-[-1]" />
