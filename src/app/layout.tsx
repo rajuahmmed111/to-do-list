@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Background from "@/assets/background/background.png";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
-import TopBar from "@/components/common/TopBar";
+// import Background from "@/assets/background/bg.png"
+// import Navbar from "@/components/common/Navbar";
+// import Footer from "@/components/common/Footer";
+// import TopBar from "@/components/common/TopBar";
 import React from "react";
+// import path from "path";
+import Header from "@/components/common/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +28,10 @@ export const metadata: Metadata = {
     "A site for guys into gaining and encouraging, bellies, chubby bears, gay chubs and admirers",
 };
 
+const pathName = typeof window !== "undefined" ? window.location.pathname : "";
+
+const isLogin = pathName === "/login";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,20 +40,33 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body
-        style={{ background: `url('${Background.src}')` }}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          backgroundImage: `url(${Background.src})`,
+          backgroundSize: "cover", 
+          backgroundRepeat: "repeat",
+          backgroundColor: "#594614", 
+          backgroundBlendMode: "multiply",
+          minHeight: "100vh",
+        }}
+         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TopBar />
+        
+        {/* <TopBar /> */}
         <div className="md:container">
-          <Navbar />
+          {/* <Navbar /> */}
+          <Header/>
         </div>
         <div className="md:px-5">
-          <div className="md:container md:rounded-lg text-text bg-white">
-            {children}
-          </div>
+          {!isLogin ? (
+            <div className="md:container md:rounded-lg text-text">
+              {children}
+            </div>
+          ) : (
+            <>{children}</>
+          )}
         </div>
         <div className="md:container">
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
