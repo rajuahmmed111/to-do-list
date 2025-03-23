@@ -5,12 +5,12 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
-import type { Task } from "@/types/task"
 import { formatDate } from "@/lib/utils"
 import { Pencil, Trash, X, Check } from "lucide-react"
 import { toggleTaskCompletion, updateTask, deleteTask } from "@/app/actions/task-actions"
-import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import { Task } from "@/app/types/task"
+import { useToast } from "@/hooks/use-toast"
 
 interface TaskListProps {
   tasks: Task[]

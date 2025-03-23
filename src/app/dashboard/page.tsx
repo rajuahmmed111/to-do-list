@@ -15,13 +15,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { TaskList } from "@/components/task-list";
 import { AddTaskForm } from "@/components/add-task-form";
-import type { Task } from "@/types/task";
 import { useSession } from "next-auth/react";
-import { useToast } from "@/components/ui/use-toast";
-// import { Icons } from "@/components/icons"
+// import { useToast } from "@/components/ui/use-toast";
 import { getTasks } from "../actions/task-actions";
 import { Icons } from "@/components/icons";
 import Image from "next/image";
+import { Task } from "../types/task";
+import { useToast } from "@/hooks/use-toast";
 
 export default function DashboardPage() {
   const router = useRouter();

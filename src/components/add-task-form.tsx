@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Plus } from "lucide-react"
 import { addTask } from "@/app/actions/task-actions"
-import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import { useToast } from "@/hooks/use-toast"
 
 interface AddTaskFormProps {
   onAddTask: () => void

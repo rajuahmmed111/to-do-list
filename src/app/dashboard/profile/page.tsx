@@ -11,11 +11,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-// import { Icons } from "@/components/icons"
 import { useSession } from "next-auth/react"
 import { updateProfile, uploadProfilePicture } from "@/app/actions/profile-actions"
-import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import { useToast } from "@/hooks/use-toast"
 
 export default function ProfilePage() {
   const router = useRouter()
