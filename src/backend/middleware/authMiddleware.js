@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const User = require("../models/userModel")
 
 const protect = asyncHandler(async (req, res, next) => {
