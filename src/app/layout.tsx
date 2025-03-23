@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Background from "@/assets/background/background.png";
-// import Background from "@/assets/background/bg.png"
-// import Navbar from "@/components/common/Navbar";
-// import Footer from "@/components/common/Footer";
-// import TopBar from "@/components/common/TopBar";
+// import Background from "@/assets/background/background.png";
 import React from "react";
-// import path from "path";
-import Header from "@/components/common/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,20 +35,18 @@ export default function RootLayout({
     <html lang="en" data-theme="light">
       <body
         style={{
-          backgroundImage: `url(${Background.src})`,
-          backgroundSize: "cover", 
-          backgroundRepeat: "repeat",
-          backgroundColor: "#594614", 
-          backgroundBlendMode: "multiply",
-          minHeight: "100vh",
+          // backgroundImage: `url(${Background.src})`,
+          // backgroundSize: "cover", 
+          // backgroundRepeat: "repeat",
+          // backgroundColor: "#594614", 
+          // backgroundBlendMode: "multiply",
+          // minHeight: "100vh",
         }}
          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         
-        {/* <TopBar /> */}
         <div className="md:container">
-          {/* <Navbar /> */}
-          <Header/>
+       
         </div>
         <div className="md:px-5">
           {!isLogin ? (
@@ -66,7 +58,6 @@ export default function RootLayout({
           )}
         </div>
         <div className="md:container">
-          {/* <Footer /> */}
         </div>
       </body>
     </html>
