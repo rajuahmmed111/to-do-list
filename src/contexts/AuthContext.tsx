@@ -2,8 +2,9 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { useRouter } from "next/navigation"
-import { authService, uploadProfilePicture } from "@/services/api"
 import { tokenStorage } from "@/services/tokenStorage"
+import { authService, uploadProfilePicture } from "@/services/api"
+
 
 interface User {
   _id: string

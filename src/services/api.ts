@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
 
 // Helper function for API calls

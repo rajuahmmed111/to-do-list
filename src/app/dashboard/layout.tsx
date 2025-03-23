@@ -1,30 +1,26 @@
+"use client";
 
-"use client"
-
-import type React from "react"
-
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { useAuth } from "@/contexts/AuthContext"
-import { TaskProvider } from "@/contexts/TaskContext"
+import type React from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { TaskProvider } from "@/contexts/TaskContext";
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const { user, loading } = useAuth()
-  const router = useRouter()
+  const { user, loading } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/sign-in")
+      router.push("/sign-in");
     }
-  }, [user, loading, router])
+  }, [user, loading, router]);
 
-  if (loading || !user) {
-    return null
-  }
+  if (loading) return <p>Loading...</p>;
 
-  return <TaskProvider>{children}</TaskProvider>
+  return <TaskProvider>{children}</TaskProvider>;
 }

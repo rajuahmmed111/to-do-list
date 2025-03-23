@@ -176,28 +176,36 @@
 //   );
 // }
 
-
-
-"use client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { TaskList } from "@/components/task-list"
-import { AddTaskForm } from "@/components/add-task-form"
-import { useRouter } from "next/navigation"
-import { Icons } from "@/components/icons"
-import Image from "next/image"
-import { useAuth } from "@/contexts/AuthContext"
-import { useTask } from "@/contexts/TaskContext"
+"use client";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { TaskList } from "@/components/task-list";
+import { AddTaskForm } from "@/components/add-task-form";
+import { useRouter } from "next/navigation";
+import { Icons } from "@/components/icons";
+import Image from "next/image";
+import { useAuth } from "@/contexts/AuthContext";
+import { useTask } from "@/contexts/TaskContext";
 
 export default function DashboardPage() {
-  const router = useRouter()
-  const { user } = useAuth()
-  const { tasks, loading } = useTask()
+  const router = useRouter();
+  const { user } = useAuth();
+  const { tasks, loading } = useTask();
 
-  const currentTasks = tasks.filter((task: { completed: any }) => !task.completed)
-  const completedTasks = tasks.filter((task: { completed: any }) => task.completed)
+  const currentTasks = tasks.filter(
+    (task: { completed: any }) => !task.completed
+  );
+  const completedTasks = tasks.filter(
+    (task: { completed: any }) => task.completed
+  );
 
   if (loading) {
     return (
@@ -208,13 +216,15 @@ export default function DashboardPage() {
             <div className="flex items-center justify-center h-64">
               <div className="text-center">
                 <Icons.spinner className="mx-auto h-8 w-8 animate-spin" />
-                <p className="mt-2 text-sm text-muted-foreground">Loading tasks...</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Loading tasks...
+                </p>
               </div>
             </div>
           </div>
         </main>
       </div>
-    )
+    );
   }
 
   return (
@@ -226,14 +236,20 @@ export default function DashboardPage() {
             <Card className="col-span-2">
               <CardHeader>
                 <CardTitle>Tasks</CardTitle>
-                <CardDescription>Manage your tasks and stay organized.</CardDescription>
+                <CardDescription>
+                  Manage your tasks and stay organized.
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <AddTaskForm />
                 <Tabs defaultValue="current" className="mt-6">
                   <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="current">Current Tasks ({currentTasks.length})</TabsTrigger>
-                    <TabsTrigger value="completed">Completed Tasks ({completedTasks.length})</TabsTrigger>
+                    <TabsTrigger value="current">
+                      Current Tasks ({currentTasks.length})
+                    </TabsTrigger>
+                    <TabsTrigger value="completed">
+                      Completed Tasks ({completedTasks.length})
+                    </TabsTrigger>
                   </TabsList>
                   <TabsContent value="current" className="mt-4">
                     <TaskList tasks={currentTasks} />
@@ -247,17 +263,22 @@ export default function DashboardPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Profile</CardTitle>
-                <CardDescription>Manage your profile information.</CardDescription>
+                <CardDescription>
+                  Manage your profile information.
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col items-center space-y-4">
                   <div className="relative">
                     <div className="h-24 w-24 overflow-hidden rounded-full bg-muted">
-                    <Image
-                        src={user?.profilePicture || "/placeholder.svg?height=96&width=96"}
-                        alt="Profile"
-                        className="h-full w-full object-cover"
-                      />
+                      <div className="relative h-24 w-24 overflow-hidden rounded-full bg-muted">
+                        <Image
+                          src={user?.profilePicture || "/placeholder.svg"}
+                          alt="Profile"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
                     <Button
                       size="sm"
@@ -270,7 +291,9 @@ export default function DashboardPage() {
                   </div>
                   <div className="text-center">
                     <h3 className="text-lg font-medium">{user?.name}</h3>
-                    <p className="text-sm text-muted-foreground">{user?.email}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {user?.email}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -279,6 +302,5 @@ export default function DashboardPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
-
