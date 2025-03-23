@@ -94,12 +94,10 @@ export default function DashboardPage() {
                   <div className="relative">
                     <div className="h-24 w-24 overflow-hidden rounded-full bg-muted">
                       <Image
-                        src={
-                          user?.profilePicture ||
-                          "/placeholder.svg?height=96&width=96"
-                        }
+                        src={user?.profilePicture || "/placeholder.svg"}
                         alt="Profile"
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                     <Button
