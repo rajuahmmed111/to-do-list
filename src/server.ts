@@ -1,73 +1,48 @@
-import { Server } from 'http';
-import { WebSocketServer, WebSocket } from 'ws';
-import { PrismaClient } from '@prisma/client';
-import config from './config';
-import app from './app';
-import { initiateSuperAdmin } from './app/db/db';
+/* eslint-disable @typescript-eslint/no-require-imports */
+const express = require("express")
+const dotenv = require("dotenv")
+const cors = require("cors")
+const morgan = require("morgan")
+const connectDB = require("./config/db")
+const { errorHandler } = require("./middleware/errorMiddleware")
+const path = require("path")
 
-const prisma = new PrismaClient();
-let wss: WebSocketServer;
-const channelClients = new Map<string, Set<WebSocket>>();
+// Load env vars
+dotenv.config()
 
-function broadcastToChannel(
-  channelId: string,
-  data: object,
-  excludeSocket: WebSocket | null = null
-) {
-  const clients = channelClients.get(channelId);
-  if (clients) {
-    clients.forEach((client) => {
-      if (excludeSocket !== client && client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(data));
-      }
-    });
-  }
-}
-async function main() {
-  const server: Server = app.listen(config.port, () => {
-    console.log('Server running on port', config.port);
-  });
-  initiateSuperAdmin();
+// Connect to database
+connectDB()
 
-  // new WebSocket server
-  wss = new WebSocketServer({ server });
+const app = express()
 
-  // client handle connection
-  wss.on('connection', (ws) => {
-    console.log('New WebSocket connection!');
+// Middleware
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-    let channelId: string | null = null;
-    // client received message
-    ws.on('message', async (message) => {
-      try {
-        const parsed = JSON.parse(message.toString());
-        if (parsed.type === 'subscribe' && parsed.channelId) {
-          channelId = parsed.channelId;
-
-          if (channelId && !channelClients.has(channelId)) {
-            channelClients.set(channelId, new Set());
-          }
-          channelId && channelClients.get(channelId)?.add(ws);
-          ws.send(JSON.stringify({ type: 'subscribed', channelId }));
-        } else if (parsed.type === 'message') {
-          const channelId = parsed.channelId;
-          const privateMessage = parsed.message;
-          broadcastToChannel(channelId, privateMessage);
-        }
-      } catch (err: any) {
-        console.error('error:', err.message);
-      }
-    });
-    ws.on('close', () => {
-      if (channelId) {
-        channelClients.get(channelId)?.delete(ws);
-        if (channelClients.get(channelId)?.size === 0) {
-          channelClients.delete(channelId);
-        }
-      }
-      console.log('Client disconnected!');
-    });
-  });
+// Logger
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"))
 }
 
-main();
+// Static folder for uploads
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+
+// Routes
+app.use("/api/users", require("./routes/userRoutes"))
+app.use("/api/tasks", require("./routes/taskRoutes"))
+
+// Health check route
+app.get("/", (req: any, res: { json: (arg0: { message: string }) => void }) => {
+  res.json({ message: "API is running..." })
+})
+
+// Error handler
+app.use(errorHandler)
+
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
