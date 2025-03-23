@@ -74,11 +74,13 @@
 // }
 
 
-import User from "@/models/User"
-import { auth } from "@/auth"
+// import User from "@/models/User"
+// import { auth } from "@/auth"
 import { revalidatePath } from "next/cache"
 import { put } from "@vercel/blob"
 import { connectToDatabase } from "@/lib/mongodb"
+import { auth } from "../../../auth"
+import User from "@/backend/models/User"
 
 export async function updateProfile(formData: FormData) {
   try {

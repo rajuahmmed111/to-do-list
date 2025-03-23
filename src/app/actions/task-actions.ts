@@ -179,10 +179,12 @@
 
 
 
-import Task from "@/models/Task"
-import { auth } from "@/auth"
+// import Task from "@/models/Task"
+// import { auth } from "@/auth"
 import { revalidatePath } from "next/cache"
 import { connectToDatabase } from "@/lib/mongodb"
+import { auth } from "../../../auth"
+import Task from "@/backend/models/Task"
 
 export async function getTasks() {
   try {

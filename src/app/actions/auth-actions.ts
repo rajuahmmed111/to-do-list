@@ -39,8 +39,8 @@
 
 "use server"
 
+import User from "@/backend/models/User"
 import { connectToDatabase } from "@/lib/mongodb"
-import User from "@/models/User"
 
 export async function registerUser(formData: FormData) {
   try {
