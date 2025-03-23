@@ -1,38 +1,128 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+"use client";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { TaskList } from "@/components/task-list";
+import { AddTaskForm } from "@/components/add-task-form";
+import { useRouter } from "next/navigation";
+import { Icons } from "@/components/icons";
+import Image from "next/image";
+import { useAuth } from "@/contexts/AuthContext";
+import { useTask } from "@/contexts/TaskContext";
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <header className="bg-primary py-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-primary-foreground">TaskMaster</h1>
-        </div>
-      </header>
-      <main className="flex-1">
-        <section className="container mx-auto px-4 py-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 text-4xl font-bold">Manage Your Tasks Efficiently</h2>
-            <p className="mb-8 text-xl text-muted-foreground">
-              A simple and intuitive to-do list application to help you stay organized and productive.
-            </p>
-            <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
-              <Button asChild size="lg">
-                <Link href="/sign-in">Sign In</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/sign-up">Create Account</Link>
-              </Button>
+export default function DashboardPage() {
+  const router = useRouter();
+  const { user } = useAuth();
+  const { tasks, loading } = useTask();
+
+  const currentTasks = tasks.filter(
+    (task: { completed: any }) => !task.completed
+  );
+  const completedTasks = tasks.filter(
+    (task: { completed: any }) => task.completed
+  );
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen flex-col">
+        <DashboardHeader />
+        <main className="flex-1 space-y-4 p-4 md:p-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex items-center justify-center h-64">
+              <div className="text-center">
+                <Icons.spinner className="mx-auto h-8 w-8 animate-spin" />
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Loading tasks...
+                </p>
+              </div>
             </div>
           </div>
-        </section>
-      </main>
-      <footer className="border-t py-6">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} TaskMaster. All rights reserved.
-        </div>
-      </footer>
-    </div>
-  )
-}
+        </main>
+      </div>
+    );
+  }
 
+  return (
+    <div className="flex min-h-screen flex-col">
+      <DashboardHeader />
+      <main className="flex-1 space-y-4 p-4 md:p-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="col-span-2">
+              <CardHeader>
+                <CardTitle>Tasks</CardTitle>
+                <CardDescription>
+                  Manage your tasks and stay organized.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <AddTaskForm />
+                <Tabs defaultValue="current" className="mt-6">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="current">
+                      Current Tasks ({currentTasks.length})
+                    </TabsTrigger>
+                    <TabsTrigger value="completed">
+                      Completed Tasks ({completedTasks.length})
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="current" className="mt-4">
+                    <TaskList tasks={[]} />
+                  </TabsContent>
+                  <TabsContent value="completed" className="mt-4">
+                    <TaskList tasks={[]} />
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Profile</CardTitle>
+                <CardDescription>
+                  Manage your profile information.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="relative">
+                    <div className="h-24 w-24 overflow-hidden rounded-full bg-muted">
+                      <Image
+                        src={
+                          user?.profilePicture ||
+                          "/placeholder.svg?height=96&width=96"
+                        }
+                        alt="Profile"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <Button
+                      size="sm"
+                      className="absolute bottom-0 right-0 rounded-full"
+                      variant="secondary"
+                      onClick={() => router.push("/dashboard/profile")}
+                    >
+                      Change
+                    </Button>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium">{user?.name}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {user?.email}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

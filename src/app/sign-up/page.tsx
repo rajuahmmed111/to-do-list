@@ -1,21 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
-import { registerUser } from "@/app/actions/auth-actions"
 import { useToast } from "@/hooks/use-toast"
+import { useAuth } from "@/contexts/AuthContext"
 
 export default function SignUpPage() {
-  const router = useRouter()
+  const { register } = useAuth()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -34,30 +31,16 @@ export default function SignUpPage() {
     setIsLoading(true)
 
     try {
-      const formDataObj = new FormData()
-      formDataObj.append("name", formData.name)
-      formDataObj.append("email", formData.email)
-      formDataObj.append("password", formData.password)
+      await register(formData.name, formData.email, formData.password)
 
-      const result = await registerUser(formDataObj)
-
-      if (result.success) {
-        toast({
-          title: "Success",
-          description: result.message,
-        })
-        router.push("/sign-in")
-      } else {
-        toast({
-          title: "Error",
-          description: result.message,
-          variant: "destructive",
-        })
-      }
-    } catch (error) {
+      toast({
+        title: "Success",
+        description: "Account created successfully",
+      })
+    } catch (error: any) {
       toast({
         title: "Error",
-        description: "An unexpected error occurred",
+        description: error.message || "An unexpected error occurred",
         variant: "destructive",
       })
     } finally {
